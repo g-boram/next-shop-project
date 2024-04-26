@@ -39,18 +39,14 @@
   }
 
   .coupangInformation {
-      width: 120rem;
+      width: 110rem;
       margin: 3.2rem auto;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+      align-items: center;
 
-      .logo {
-        width: 150px;
-        > img {
-          height: 150px;
-        }
-      }
+      
       .coupangInformationList {
           list-style: none;
           padding-left: 0;
@@ -87,7 +83,7 @@
           }
 
           .customerCenterTelephone {
-              font-size: 4.8rem;
+              font-size: 2.8rem;
               line-height: 1.2;
               font-weight: 700;
               margin-top: 0.8rem;
