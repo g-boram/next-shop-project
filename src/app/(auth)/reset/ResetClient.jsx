@@ -7,15 +7,30 @@ import Heading from '@/components/heading/Heading';
 import Input from '@/components/Input/Input';
 import Button from '@/components/button/Button';
 import Link from 'next/link';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const ResetClient = () => {
 
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  // 비밀번호 리셋 이메일 전송
   const resetPassword = (e) => {
-    e.preventDefault();
+    e.preventDefault();7
     setIsLoading(true);
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setIsLoading(false);
+
+        toast.success("비밃번호 업데이트를 위해서 이메일을 체크해주세요.");
+      })
+      .catch((error) => {
+        setIsLoading(false);
+
+        toast.error(error.message);
+      })
   }
 
   return (
