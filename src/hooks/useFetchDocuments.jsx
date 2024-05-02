@@ -20,6 +20,7 @@ const useFetchDocuments = (collectionName, arg) => {
     })
 
     setDocuments(documentsArray);
+    
   }, [collectionName, arg[0], arg[1], arg[2]])
 
   useEffect(() => {

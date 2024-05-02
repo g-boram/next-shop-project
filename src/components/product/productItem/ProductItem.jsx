@@ -12,14 +12,14 @@ import useFetchDocuments from '@/hooks/useFetchDocuments';
 
 const ProductItem = ({ id, name, price, imageURL }) => {
 
-  // const { documents } = useFetchDocuments('reviews', ["productID", "==", id ])
-  // let productRating = 0;
+  const { documents } = useFetchDocuments('reviews', ["productID", "==", id ])
+  let productRating = 0;
 
-  // documents.map(doc => {
-  //   productRating = productRating + doc.rate;
-  // })
+  documents.map(doc => {
+    productRating = productRating + doc.rate;
+  })
 
-  // const rating = productRating / documents.length;
+  const rating = productRating / documents.length;
 
   const shortenText = (text, n) => {
     if (text.length > n) {
@@ -51,12 +51,12 @@ const ProductItem = ({ id, name, price, imageURL }) => {
             <Rating
               size={17}
               readonly
-              initialValue={1}
-              // initialValue={Number.isNaN(rating) ? 0: rating}
+              // initialValue={1}
+              initialValue={Number.isNaN(rating) ? 0: rating}
             />
             <span className={styles.ratingCount}>
-              (1)
-              {/* ({documents.length}) */}
+              {/* (1) */}
+              ({documents.length})
             </span>
           </div>
         </div>

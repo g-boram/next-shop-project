@@ -19,7 +19,7 @@ const ProductDetailsClient = () => {
   const { id } = useParams();
 
   const { document: product } = useFetchDocument('products', id);
-  const { document: reviews } = useFetchDocuments('reviews', ["productID", "==", id]);
+  const { documents: reviews } = useFetchDocuments('reviews', ["productID", "==", id]);
 
   const dispatch = useDispatch();
   const [count, setCount] = useState(1);
