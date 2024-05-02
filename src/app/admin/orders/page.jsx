@@ -1,11 +1,8 @@
 import React from 'react'
+import OrdersClient from './OrdersClient'
 
 const Orders = () => {
-  return (
-    <div>
-      Orders
-    </div>
-  )
+  return <OrdersClient />
 }
 
 export default Orders

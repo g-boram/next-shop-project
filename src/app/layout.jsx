@@ -5,6 +5,7 @@ import Footer from '@/layouts/footer/Footer'
 import Header from '@/layouts/header/Header'
 import InnerHeader from '@/layouts/innerHeader/InnerHeader'
 import Providers from '@/redux/Providers'
+import NavbarProvider from '@/layouts/navbar/NavbarProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
         <Providers>
           <Header />
           <ToastProvider />
-          {children}
+          <NavbarProvider>
+            {children}
+          </NavbarProvider>
           <Footer />
         </Providers>
       </body>

@@ -1,11 +1,8 @@
 import React from 'react'
+import DashboardClient from './DashboardClient'
 
 const Dashboard = () => {
-  return (
-    <div>
-      Dashboard
-    </div>
-  )
+  return <DashboardClient />
 }
 
 export default Dashboard
