@@ -12,6 +12,8 @@ import listCashIcon from '@/assets/list-cash-icon.png';
 import priceFormat from '@/utils/priceFormat';
 import useFetchDocuments from '@/hooks/useFetchDocuments';
 import ProductReviewItem from '@/components/product/productReviewItem/productReviewItem';
+import { useDispatch } from 'react-redux';
+import { ADD_TO_CART, CALCULATE_TOTAL_QUANTITY } from '@/redux/slice/cartSlice';
 
 const ProductDetailsClient = () => {
   const { id } = useParams();
@@ -19,9 +21,13 @@ const ProductDetailsClient = () => {
   const { document: product } = useFetchDocument('products', id);
   const { document: reviews } = useFetchDocuments('reviews', ["productID", "==", id]);
 
+  const dispatch = useDispatch();
   const [count, setCount] = useState(1);
 
-  const addToCart = () => {};
+  const addToCart = () => {
+    dispatch(ADD_TO_CART({ ...product, quantity: count}));
+    dispatch(CALCULATE_TOTAL_QUANTITY());
+  };
 
   const today = new Date();
   const tomorrow = new Date(today.setDate(today.getDate() + 1));
